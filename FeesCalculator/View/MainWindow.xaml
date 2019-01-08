@@ -1,0 +1,470 @@
+﻿<Window x:Class="FeesCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="FeesCalculator" Height="450" Width="450">
+    <Grid Background="Beige">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="29*"/>
+        </Grid.RowDefinitions>
+        <DatePicker SelectedDate="{Binding DatePickerSelection,
+                                   UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Height="35"/>
+        <Button x:Name="NewBillingPeriod"
+                Command="{Binding NewBillingPeriodCommand}"
+                Grid.Row="0" 
+                Grid.Column="2"
+                Height="33"
+                Width="80">
+            <TextBlock
+                    Text="Nowy okres rozliczeniowy"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    />
+        </Button>
+        <Button x:Name="LoadExistingBillingPeriod"
+                Command="{Binding LoadExistingBillingPeriodCommand}"
+                Grid.Row="0" 
+                Grid.Column="3"
+                Height="33"
+                Width="80">
+            <TextBlock
+                    Text="Wczytaj okres rozliczeniowy"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    />
+        </Button>
+        <Button x:Name="UtilityWindow"
+                Command="{Binding ShowUtilityWindowCommand}"
+                Grid.Row="0" 
+                Grid.Column="4"
+                Height="33"
+                Width="80">
+            <TextBlock
+                    Text="Ceny jednostkowe"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    />
+        </Button>
+        <TextBlock Text="Liczba osób"
+                   Grid.Column="0"
+                   Grid.Row="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   />
+        <TextBox x:Name="NumberofPeopleTextBox" 
+                Text= "{Binding NumberofPeople,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 Width="30" 
+                 HorizontalAlignment="Center" 
+                 VerticalAlignment="Center"
+                 />
+        <Separator Grid.Row="2" 
+                   Grid.ColumnSpan="5" 
+                   Grid.Column="0"
+                   Panel.ZIndex="1" 
+                   VerticalAlignment="Top"
+                   />
+        <TextBlock Text="Opłaty stałe"
+                   Grid.ColumnSpan="5" 
+                   Grid.Column="0"
+                   Grid.Row="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" 
+                   FontWeight="Bold" 
+                   />
+        <TextBlock Text="Centralne ogrzewanie"
+                   Grid.Column="0"
+                   Grid.Row="3"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center" 
+                   />
+        <TextBox Text="{Binding CoFixedValue, 
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged,
+                        StringFormat=C}"
+                 IsReadOnly="True"
+                 Grid.Column="1"
+                 Grid.Row="3"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center" 
+                 />
+        <TextBlock Text="Wywóz nieczystości"
+                   Grid.Column="3"
+                   Grid.Row="3"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   />
+        <TextBox Text="{Binding TrashValue,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged,
+                        StringFormat=C}"
+                 IsReadOnly="True"
+                 Grid.Column="4"
+                 Grid.Row="3"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <Separator Grid.Row="4" 
+                   Grid.ColumnSpan="5" 
+                   Grid.Column="0"
+                   Panel.ZIndex="1" 
+                   VerticalAlignment="Top"
+                   />
+        <TextBlock Text="Opłaty zmienne"
+                   Grid.ColumnSpan="5" 
+                   Grid.Column="0"
+                   Grid.Row="4"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" 
+                   FontWeight="Bold" 
+                   />
+        <TextBlock Text="Bieżący miesiąc"
+                   Grid.Column="1"
+                   Grid.Row="5"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   TextWrapping="Wrap"
+                   />
+        <TextBlock Text="Poprzedni miesiąc"
+                   Grid.Column="2"
+                   Grid.Row="5"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   />
+        <TextBlock Text="Miesięczne zużycie"
+                   Grid.Column="3"
+                   Grid.Row="5"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   />
+        <TextBlock Text="Koszt na osobę"
+                   Grid.Column="4"
+                   Grid.Row="5"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   />
+        <TextBlock Text="Ciepła woda"
+                   Grid.Column="0"
+                   Grid.Row="6"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   />
+        <TextBox Text ="{Binding CwCurrentValue,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=LostFocus}"
+                 Grid.Column="1"
+                 Grid.Row="6"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding CwLastMonth,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged}"               
+                 Grid.Column="2"
+                 Grid.Row="6"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding CwChange,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged}"
+                 IsReadOnly="True"
+                 Grid.Column="3"
+                 Grid.Row="6"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding CwPerPerson,
+                         Mode=TwoWay, 
+                         UpdateSourceTrigger=PropertyChanged,
+                         StringFormat=C}"
+                 IsReadOnly="True"
+                 Grid.Column="4"
+                 Grid.Row="6"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBlock Text="Zimna woda i ścieki"
+                   Grid.Column="0"
+                   Grid.Row="7"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   />
+        <TextBox Text="{Binding ZwCurrentValue,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=LostFocus}"
+                 Grid.Column="1"
+                 Grid.Row="7"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding ZwLastMonth,
+                         Mode=TwoWay, 
+                         UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="2"
+                 Grid.Row="7"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding ZwChange,
+                         Mode=TwoWay, 
+                         UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="7"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding ZwPerPerson,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged,
+                        StringFormat=C}"
+                 Grid.Column="4"
+                 Grid.Row="7"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBlock Text="Centralne ogrzewanie"
+                   Grid.Column="0"
+                   Grid.Row="8"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   />
+        <TextBox Text="{Binding COCurrentValue,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=LostFocus}"
+                 Grid.Column="1"
+                 Grid.Row="8"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding COLastMonth,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="2"
+                 Grid.Row="8"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding COChange,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged}"
+                 IsReadOnly="True"
+                 Grid.Column="3"
+                 Grid.Row="8"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding COPerPerson,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged,
+                        StringFormat=C}"
+                 IsReadOnly="True"
+                 Grid.Column="4"
+                 Grid.Row="8"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBlock Text="Elektryczność"
+                   Grid.Column="0"
+                   Grid.Row="9"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   TextWrapping="Wrap"
+                   />
+        <TextBox Text ="{Binding ElecCurrentValue,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=LostFocus}"
+                 Grid.Column="1"
+                 Grid.Row="9"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding ElecLastMonth,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="2"
+                 Grid.Row="9"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding ElecChange,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged}"
+                 IsReadOnly="True"
+                 Grid.Column="3"
+                 Grid.Row="9"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding ElecPerPerson,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged,
+                        StringFormat=C}"
+                 IsReadOnly="True"
+                 Grid.Column="4"
+                 Grid.Row="9"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBlock Text="Inne"
+                   Grid.Column="0"
+                   Grid.Row="10"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   />
+        <TextBox Text ="{Binding OtherCurrentValue,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=LostFocus,
+                        StringFormat=C}"
+                 Grid.Column="1"
+                 Grid.Row="10"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <TextBox Text ="{Binding OtherPerPerson,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged,
+                        StringFormat=C}"
+                 IsReadOnly="True"
+                 Grid.Column="4"
+                 Grid.Row="10"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 />
+        <Separator Grid.Row="11" 
+                   Grid.ColumnSpan="5" 
+                   Grid.Column="0"
+                   Panel.ZIndex="1" 
+                   VerticalAlignment="Top"
+                   />
+        <TextBlock Text="Podsumowanie"
+                   Grid.ColumnSpan="5" 
+                   Grid.Column="0"
+                   Grid.Row="11"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" 
+                   FontWeight="Bold" 
+                   />
+        <Button x:Name="CalculateButton"
+                Command="{Binding CalculateCommand}"
+                Grid.Row="12"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Width="80"
+                Height="30">
+            <TextBlock
+                Text="Oblicz"
+                FontWeight="Bold" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                TextWrapping="Wrap"
+                TextAlignment="Center"
+                />
+        </Button>
+        <Button x:Name="SaveButton"
+                Command="{Binding SaveCommand}"
+                Grid.Row="12"
+                Grid.RowSpan="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Width="80"
+                Height="30">
+            <TextBlock
+                Text="Zapisz"
+                FontWeight="Bold" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                TextWrapping="Wrap"
+                TextAlignment="Center"
+                />
+        </Button>
+        <TextBlock Text="Razem:"
+                   Grid.Column="3"
+                   Grid.Row="12"
+                   Grid.RowSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   />
+        <TextBox Text ="{Binding SumPerPerson,
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged,
+                        StringFormat=C}"
+                 IsReadOnly="True"
+                 Grid.Column="4"
+                 Grid.Row="12"
+                 Grid.RowSpan="2"
+                 Width="50"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+        />
+    </Grid>
+</Window>

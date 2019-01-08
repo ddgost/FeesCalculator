@@ -1,0 +1,179 @@
+﻿<Window x:Class="FeesCalculator.UtilityWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        mc:Ignorable="d"
+        Title="Zestaw opłat" Height="260" Width="1000">
+    <Grid Background="Beige">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <DataGrid AutoGenerateColumns="False" 
+                  x:Name="UtilityDataGrid"
+                  Grid.Column="0"
+                  CanUserAddRows="True"
+                  ItemsSource="{Binding Utilities}"
+                  SelectedItem="{Binding SelectedUtilityRow, Mode=TwoWay}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding UtilityRowSelectionCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Nr"
+                    Binding="{Binding Id}"/>
+                <DataGridTextColumn
+                    Header="Nazwa"
+                    Binding="{Binding Name}"/>
+                <DataGridTextColumn
+                    Header="Typ"
+                    Binding="{Binding Type}"/>
+                <DataGridTextColumn
+                    Header="Czy stała?"
+                    Binding="{Binding IsFixed}"/>
+                <DataGridTextColumn
+                    Header="Mnożnik"
+                    Binding="{Binding Value}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Border Grid.Column="1" 
+                BorderThickness="1" 
+                Margin="30" 
+                BorderBrush="Green">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Nazwa"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       />
+                <TextBox Text="{Binding UtilityName,
+                                Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Column="1"
+                         Grid.Row="0"
+                         Width="150"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         />
+                <TextBlock Text="Typ"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           />
+                <ComboBox Name="UtilityTypeComboBox"
+                          ItemsSource="{Binding UtilityTypeComboBox}"
+                          SelectedItem="{Binding UtilityType,
+                                         Mode = TwoWay,
+                                         UpdateSourceTrigger=PropertyChanged}"
+                          Grid.Column="1"
+                          Grid.Row="1"
+                          Width="70"
+                          Height="20"
+                          />
+                <TextBlock Text="Czy opłata jest stała?"
+                           Grid.Column="0"
+                           Grid.Row="2"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           />
+                <CheckBox  Grid.Column="1"
+                           Grid.Row="2"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           IsChecked="{Binding IsUtilityFixed,
+                                       Mode = TwoWay,
+                                       UpdateSourceTrigger=PropertyChanged}"
+                           />
+                <TextBlock Text="Wartość"
+                           Grid.Column="0"
+                           Grid.Row="3"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           />
+                <TextBox Text="{Binding UtilityValue,
+                                Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Column="1"
+                         Grid.Row="3"
+                         Width="60"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         />
+                <DockPanel Grid.Row="4" 
+                           Grid.Column="0" 
+                           Grid.ColumnSpan="2" 
+                           HorizontalAlignment="Center" >
+                    <Button Command="{Binding AddUtilityRowCommand}"
+                            Grid.Row="0" 
+                            Grid.Column="3"
+                            Width="75"
+                            Height="20">
+                        <TextBlock
+                            Text="Dodaj"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            TextWrapping="Wrap"
+                            TextAlignment="Center"
+                            />
+                    </Button>
+                    <Button Command="{Binding UpdateUtilityRowCommand}"
+                            Grid.Row="0" 
+                            Grid.Column="3"
+                            Width="75"
+                            Height="20"
+                            Margin="5">
+                        <TextBlock
+                            Text="Popraw"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            TextWrapping="Wrap"
+                            TextAlignment="Center"
+                            />
+                    </Button>
+                    <Button Command="{Binding DeleteUtilityRowCommand}"
+                            Grid.Row="0" 
+                            Grid.Column="3"
+                            Width="75"
+                            Height="20">
+                        <TextBlock
+                            Text="Usuń"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            TextWrapping="Wrap"
+                            TextAlignment="Center"
+                            />
+                    </Button>
+                </DockPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
