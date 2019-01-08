@@ -68,7 +68,7 @@ namespace FeesCalculator {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Kalkulator opłat;component/view/utilitywindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FeesCalculator;component/view/utilitywindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\View\UtilityWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

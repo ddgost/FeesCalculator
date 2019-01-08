@@ -1,32 +1,32 @@
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\Kalkulator opłat.exe.config
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\Kalkulator opłat.exe
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\Kalkulator opłat.pdb
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\CommonServiceLocator.dll
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\EntityFramework.dll
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.dll
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.Platform.dll
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\EntityFramework.xml
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.pdb
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.xml
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.Extras.xml
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.csprojAssemblyReference.cache
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\View\UtilityWindow.baml
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\View\MainWindow.baml
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\View\UtilityWindow.g.cs
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\View\MainWindow.g.cs
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\App.g.cs
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\Kalkulator opłat_MarkupCompile.cache
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\Kalkulator opłat.g.resources
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.Migrations.AppDB.resources
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.csproj.GenerateResource.cache
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.csproj.CoreCompileInputs.cache
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.csproj.CopyComplete
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\Kalkulator opłat.exe
-C:\Users\Meffu\Desktop\FeesCalculator\FeesCalculator\obj\Debug\Kalkulator opłat.pdb
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\FeesCalculator.exe.config
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\FeesCalculator.exe
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\FeesCalculator.pdb
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\CommonServiceLocator.dll
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\EntityFramework.dll
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\EntityFramework.xml
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.csprojAssemblyReference.cache
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\View\UtilityWindow.baml
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\View\MainWindow.baml
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\View\UtilityWindow.g.cs
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\View\MainWindow.g.cs
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\App.g.cs
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator_MarkupCompile.cache
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.g.resources
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.Migrations.AppDB.resources
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.csproj.GenerateResource.cache
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.csproj.CoreCompileInputs.cache
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.csproj.CopyComplete
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.exe
+C:\Users\Meffu\Documents\GitHub\FeesCalculator\FeesCalculator\obj\Debug\FeesCalculator.pdb
