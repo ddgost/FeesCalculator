@@ -120,7 +120,7 @@
                 new MonthlyConsumption
                 {
                     Id = 1,
-                    NameofMonth = "listopad 2018",
+                    NameofMonth = "grudzień 2018",
                     NumberofPeople = 4,
                     CwCurrentValue = 278.38m,
                     CwChange = 2.25m,
@@ -131,12 +131,33 @@
                     COCurrentValue = 101.83m,
                     COChange = 1.03m,
                     COPerPerson = 16.11m,
-                    ElecCurrentValue = 6969.8m,
+                    ElecCurrentValue = 6869.8m,
                     ElecChange = 175.3m,
                     ElecPerPerson = 30.27m,
                     OtherCurrentValue = 64.36m,
                     OtherPerPerson = 16.09m,
                     SumPerPerson = 105.15m,
+                },
+                new MonthlyConsumption
+                {
+                    Id = 2,
+                    NameofMonth = "styczeń 2019",
+                    NumberofPeople = 4,
+                    CwCurrentValue = 280.69m,
+                    CwChange = 2.31m,
+                    CwPerPerson = 12.34m,
+                    ZwCurrentValue = 376.69m,
+                    ZwChange = 4.06m,
+                    ZwPerPerson = 16.82m,
+                    COCurrentValue = 103.66m,
+                    COChange = 1.83m,
+                    COPerPerson = 28.62m,
+                    ElecCurrentValue = 7019.7m,
+                    ElecChange = 149.9m,
+                    ElecPerPerson = 26.47m,
+                    OtherCurrentValue = 45.92m,
+                    OtherPerPerson = 11.48m,
+                    SumPerPerson = 109.02m,
                 }
             };
             monthlyConsumptions.ForEach(monthlyConsumption => context.MonthlyConsumptions.AddOrUpdate(y => y.Id, monthlyConsumption));

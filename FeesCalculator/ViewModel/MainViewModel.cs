@@ -407,7 +407,7 @@ namespace FeesCalculator.ViewModel
                     _fillAllTextBoxesFromDB();
                 }));
 
-        //Rest of login in MainWindow codebehind.
+        //Message is sent to MainWindow codebehind.
         public ICommand ShowUtilityWindowCommand =>
             _showUtilityWindowCommand ??
             (_showUtilityWindowCommand = new RelayCommand(
