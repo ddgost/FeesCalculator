@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using FeesCalculator.Model;
 using AppContext = FeesCalculator.Model.AppContext;
@@ -55,6 +55,7 @@ namespace FeesCalculator.ViewModel
             {
                 _numberofPeople = value;
                 RaisePropertyChanged("NumberofPeople");
+                CommandManager.InvalidateRequerySuggested();    
             }
 
         }
@@ -460,6 +461,10 @@ namespace FeesCalculator.ViewModel
                     ElecPerPerson = (ElecPerPerson + elecfixedquery.Sum())*_vat / NumberofPeople;
                     OtherPerPerson = OtherCurrentValue / NumberofPeople;
                     SumPerPerson = (CoFixedValue + TrashValue) / NumberofPeople + CwPerPerson + ZwPerPerson + COPerPerson + ElecPerPerson + OtherPerPerson;
+                },
+                () =>
+                {
+                    return NumberofPeople != 0;
                 }));
         //Save values calculated in CalculateCommand to Db.
         public ICommand SaveCommand =>
