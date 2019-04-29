@@ -3,8 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="FeesCalculator" Height="450" Width="450">
+    <Window.Resources>
+        <Style TargetType="TextBox" x:Key="InputTextBox">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox" x:Key="OutputTextBox">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="IsEnabled" Value="False"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="CommonTextBlock">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </Window.Resources>
     <Grid Background="Beige">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -30,7 +50,8 @@
             <RowDefinition Height="29*"/>
         </Grid.RowDefinitions>
         <DatePicker SelectedDate="{Binding DatePickerSelection,
-                                   UpdateSourceTrigger=PropertyChanged}"
+                                   UpdateSourceTrigger=PropertyChanged,
+                                   TargetNullValue={x:Static sys:DateTime.Now}}"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     Height="35"/>
@@ -42,10 +63,8 @@
                 Width="80">
             <TextBlock
                     Text="Nowy okres rozliczeniowy"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    TextWrapping="Wrap"
-                    TextAlignment="Center"
+                    Style="{StaticResource CommonTextBlock}"
+
                     />
         </Button>
         <Button x:Name="LoadExistingBillingPeriod"
@@ -77,10 +96,9 @@
                     />
         </Button>
         <TextBlock Text="Liczba osób"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="0"
                    Grid.Row="1"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
                    />
         <TextBox x:Name="NumberofPeopleTextBox" 
                 Text= "{Binding NumberofPeople,
@@ -99,50 +117,37 @@
                    VerticalAlignment="Top"
                    />
         <TextBlock Text="Opłaty stałe"
+                   Style="{StaticResource CommonTextBlock}"
+                   FontWeight="Bold"
                    Grid.ColumnSpan="5" 
                    Grid.Column="0"
-                   Grid.Row="2"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" 
-                   FontWeight="Bold" 
+                   Grid.Row="2"   
                    />
         <TextBlock Text="Centralne ogrzewanie"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="0"
                    Grid.Row="3"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   TextWrapping="Wrap"
-                   TextAlignment="Center" 
                    />
         <TextBox Text="{Binding CoFixedValue, 
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged,
                         StringFormat=C}"
-                 IsReadOnly="True"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="1"
                  Grid.Row="3"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center" 
                  />
         <TextBlock Text="Wywóz nieczystości"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="3"
                    Grid.Row="3"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   TextWrapping="Wrap"
-                   TextAlignment="Center"
                    />
         <TextBox Text="{Binding TrashValue,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged,
                         StringFormat=C}"
-                 IsReadOnly="True"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="4"
                  Grid.Row="3"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <Separator Grid.Row="4" 
                    Grid.ColumnSpan="5" 
@@ -159,50 +164,36 @@
                    FontWeight="Bold" 
                    />
         <TextBlock Text="Bieżący miesiąc"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="1"
                    Grid.Row="5"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   TextWrapping="Wrap"
                    />
         <TextBlock Text="Poprzedni miesiąc"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="2"
                    Grid.Row="5"
-                   TextWrapping="Wrap"
-                   TextAlignment="Center"
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"
                    />
         <TextBlock Text="Miesięczne zużycie"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="3"
                    Grid.Row="5"
-                   TextWrapping="Wrap"
-                   TextAlignment="Center"
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"
                    />
         <TextBlock Text="Koszt na osobę"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="4"
                    Grid.Row="5"
-                   TextWrapping="Wrap"
-                   TextAlignment="Center"
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"
                    />
         <TextBlock Text="Ciepła woda"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="0"
                    Grid.Row="6"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
                    />
         <TextBox Text ="{Binding CwCurrentValue,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=LostFocus}"
+                 Style="{StaticResource InputTextBox}"
                  Grid.Column="1"
                  Grid.Row="6"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBox Text ="{Binding CwLastMonth,
                         Mode=TwoWay, 
@@ -212,192 +203,146 @@
                  Width="50"
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center"
+                 IsEnabled="False"
                  />
         <TextBox Text ="{Binding CwChange,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged}"
-                 IsReadOnly="True"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="3"
                  Grid.Row="6"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBox Text ="{Binding CwPerPerson,
                          Mode=TwoWay, 
                          UpdateSourceTrigger=PropertyChanged,
                          StringFormat=C}"
-                 IsReadOnly="True"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="4"
                  Grid.Row="6"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBlock Text="Zimna woda i ścieki"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="0"
                    Grid.Row="7"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   TextWrapping="Wrap"
-                   TextAlignment="Center"
                    />
         <TextBox Text="{Binding ZwCurrentValue,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=LostFocus}"
+                 Style="{StaticResource InputTextBox}"
                  Grid.Column="1"
                  Grid.Row="7"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBox Text ="{Binding ZwLastMonth,
                          Mode=TwoWay, 
                          UpdateSourceTrigger=PropertyChanged}"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="2"
                  Grid.Row="7"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBox Text ="{Binding ZwChange,
                          Mode=TwoWay, 
                          UpdateSourceTrigger=PropertyChanged}"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="3"
                  Grid.Row="7"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBox Text ="{Binding ZwPerPerson,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged,
                         StringFormat=C}"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="4"
                  Grid.Row="7"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBlock Text="Centralne ogrzewanie"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="0"
                    Grid.Row="8"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   TextWrapping="Wrap"
-                   TextAlignment="Center"
                    />
         <TextBox Text="{Binding COCurrentValue,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=LostFocus}"
+                 Style="{StaticResource InputTextBox}"
                  Grid.Column="1"
                  Grid.Row="8"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBox Text ="{Binding COLastMonth,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged}"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="2"
                  Grid.Row="8"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBox Text ="{Binding COChange,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged}"
-                 IsReadOnly="True"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="3"
                  Grid.Row="8"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBox Text ="{Binding COPerPerson,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged,
                         StringFormat=C}"
-                 IsReadOnly="True"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="4"
                  Grid.Row="8"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBlock Text="Elektryczność"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="0"
                    Grid.Row="9"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   TextWrapping="Wrap"
                    />
         <TextBox Text ="{Binding ElecCurrentValue,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=LostFocus}"
+                 Style="{StaticResource InputTextBox}"
                  Grid.Column="1"
                  Grid.Row="9"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBox Text ="{Binding ElecLastMonth,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged}"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="2"
                  Grid.Row="9"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBox Text ="{Binding ElecChange,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged}"
+                 Style="{StaticResource OutputTextBox}"
                  IsReadOnly="True"
                  Grid.Column="3"
                  Grid.Row="9"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBox Text ="{Binding ElecPerPerson,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged,
                         StringFormat=C}"
-                 IsReadOnly="True"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="4"
                  Grid.Row="9"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBlock Text="Inne"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="0"
                    Grid.Row="10"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
                    />
         <TextBox Text ="{Binding OtherCurrentValue,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=LostFocus,
                         StringFormat=C}"
+                 Style="{StaticResource InputTextBox}"
                  Grid.Column="1"
                  Grid.Row="10"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <TextBox Text ="{Binding OtherPerPerson,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged,
                         StringFormat=C}"
-                 IsReadOnly="True"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="4"
                  Grid.Row="10"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
                  />
         <Separator Grid.Row="11" 
                    Grid.ColumnSpan="5" 
@@ -406,12 +351,11 @@
                    VerticalAlignment="Top"
                    />
         <TextBlock Text="Podsumowanie"
+                   Style="{StaticResource CommonTextBlock}"
+                   FontWeight="Bold" 
                    Grid.ColumnSpan="5" 
                    Grid.Column="0"
-                   Grid.Row="11"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" 
-                   FontWeight="Bold" 
+                   Grid.Row="11" 
                    />
         <Button x:Name="CalculateButton"
                 Command="{Binding CalculateCommand}"
@@ -423,11 +367,8 @@
                 Height="30">
             <TextBlock
                 Text="Oblicz"
-                FontWeight="Bold" 
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                TextWrapping="Wrap"
-                TextAlignment="Center"
+                Style="{StaticResource CommonTextBlock}"
+                FontWeight="Bold"
                 />
         </Button>
         <Button x:Name="SaveButton"
@@ -440,31 +381,24 @@
                 Height="30">
             <TextBlock
                 Text="Zapisz"
+                Style="{StaticResource CommonTextBlock}"
                 FontWeight="Bold" 
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                TextWrapping="Wrap"
-                TextAlignment="Center"
                 />
         </Button>
         <TextBlock Text="Razem:"
+                   Style="{StaticResource CommonTextBlock}"
                    Grid.Column="3"
                    Grid.Row="12"
                    Grid.RowSpan="2"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
                    />
         <TextBox Text ="{Binding SumPerPerson,
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged,
                         StringFormat=C}"
-                 IsReadOnly="True"
+                 Style="{StaticResource OutputTextBox}"
                  Grid.Column="4"
                  Grid.Row="12"
                  Grid.RowSpan="2"
-                 Width="50"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
-        />
+                 />
     </Grid>
 </Window>
